@@ -13,6 +13,7 @@ export default defineConfig({
   preview: {
     host: true,
     allowedHosts: true,
+    port: Number(process.env.PORT) || 4173,
   },
   resolve: {
     alias: {
