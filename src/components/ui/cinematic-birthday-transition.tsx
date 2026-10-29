@@ -105,7 +105,8 @@ export const CinematicBirthdayTransition = forwardRef<
     const startX = originX ?? window.innerWidth / 2;
     const startY = originY ?? window.innerHeight / 2 + 80;
 
-    const count = 320;
+    const isMobile = window.innerWidth < 640;
+    const count = isMobile ? 160 : 320;
     const newParticles: Particle[] = [];
 
     for (let i = 0; i < count; i++) {

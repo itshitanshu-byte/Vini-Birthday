@@ -6,6 +6,11 @@
     --font-yellowtail: 'Yellowtail', cursive;
   }
 
+  html {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -14,11 +19,39 @@
     color: #1e1b4b;
     overflow-x: hidden;
     min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   #root {
     width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
+
+/* Safe Area Inset Helpers for iPhone 15 & Samsung S25 */
+.pt-safe {
+  padding-top: max(0.5rem, env(safe-area-inset-top));
+}
+
+.pb-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+.pl-safe {
+  padding-left: max(0.5rem, env(safe-area-inset-left));
+}
+
+.pr-safe {
+  padding-right: max(0.5rem, env(safe-area-inset-right));
+}
+
+/* Prevent auto-zoom on iOS Safari */
+@media (max-width: 640px) {
+  input, textarea, select {
+    font-size: 16px !important;
   }
 }
 
@@ -71,6 +104,28 @@
 
 .retro-teal-shadow {
   box-shadow: 8px 8px 0px 0px #00C9A7, 8px 8px 0px 2px #2A2B70;
+}
+
+/* Mobile responsive shadow scaling for 360px - 430px screens (iPhone 15 & Galaxy S25) */
+@media (max-width: 640px) {
+  .retro-yellow-shadow {
+    box-shadow: 6px 6px 0px 0px #FFDE59, 6px 6px 0px 2px #2A2B70;
+  }
+  .retro-yellow-shadow-sm {
+    box-shadow: 4px 4px 0px 0px #FFDE59, 4px 4px 0px 1.5px #2A2B70;
+  }
+  .retro-pink-shadow {
+    box-shadow: 5px 5px 0px 0px #FF698D, 5px 5px 0px 2px #2A2B70;
+  }
+  .retro-teal-shadow {
+    box-shadow: 5px 5px 0px 0px #00C9A7, 5px 5px 0px 2px #2A2B70;
+  }
+  .vaporwave-pink-shadow {
+    box-shadow: 4px 4px 0px 0px #ff00a0, 4px 4px 0px 1.5px #30004c;
+  }
+  .vaporwave-cyan-shadow {
+    box-shadow: 4px 4px 0px 0px #00f0ff, 4px 4px 0px 1.5px #30004c;
+  }
 }
 
 /* Outer frame/desktop border styling */

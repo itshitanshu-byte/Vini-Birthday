@@ -230,59 +230,61 @@ export function App() {
           {showBalloons && <BalloonBackground />}
 
           {/* Retro 90s Desktop Top Title Bar */}
-          <header className={`w-full bg-[#2A2B70] text-white px-4 py-2 flex items-center justify-between z-30 shadow-md border-b-2 border-[#FFE600]/40 font-montserrat transition-all duration-500 ${materializeStage >= 1 ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+          <header className={`w-full bg-[#2A2B70] text-white px-2 sm:px-4 py-1.5 sm:py-2 pt-safe flex items-center justify-between z-30 shadow-md border-b-2 border-[#FFE600]/40 font-montserrat transition-all duration-500 ${materializeStage >= 1 ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
             }`}>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 px-3 py-1 bg-[#FF6584] rounded border border-white font-black text-xs sm:text-sm tracking-wider">
-                <Cake className="w-4 h-4 text-white" />
-                <span>VINI OS 90s</span>
+            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 bg-[#FF6584] rounded border border-white font-black text-xs sm:text-sm tracking-wider">
+                <Cake className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+                <span>VINI OS</span>
               </div>
-              <span className="hidden md:inline-block text-xs text-[#FFE600] font-bold tracking-wide">
-                ★ Retro Nostalgic Birthday Celebration ★
+              <span className="hidden lg:inline-block text-xs text-[#FFE600] font-bold tracking-wide">
+                ★ Retro 90s Birthday Celebration ★
               </span>
             </div>
 
             {/* Viewport Action Controls */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3">
               <button
                 onClick={() => setShowGiftBox(true)}
-                className="px-3 py-1 bg-gradient-to-r from-[#FFE600] to-[#FF6584] hover:brightness-110 text-[#2A2B70] font-black text-xs rounded border-2 border-white shadow transition-all active:scale-95 flex items-center gap-1.5 animate-bounce"
+                className="px-2 sm:px-3 py-1 bg-gradient-to-r from-[#FFE600] to-[#FF6584] hover:brightness-110 text-[#2A2B70] font-black text-xs rounded border-2 border-white shadow transition-all active:scale-95 flex items-center gap-1 animate-bounce touch-manipulation"
                 title="Open 3D Gift Box"
               >
                 <Gift className="w-3.5 h-3.5 text-[#2A2B70]" />
-                <span>🎁 Gifts Box</span>
+                <span className="hidden xs:inline sm:inline">🎁 Gifts</span>
               </button>
 
               <button
                 onClick={() => setShowBalloons(!showBalloons)}
-                className={`px-2.5 py-1 text-xs font-bold rounded border-2 border-white transition-all flex items-center gap-1.5 ${showBalloons ? 'bg-[#00E5FF] text-[#2A2B70]' : 'bg-[#2A2B70] text-white'
+                className={`px-2 sm:px-2.5 py-1 text-xs font-bold rounded border-2 border-white transition-all flex items-center gap-1 touch-manipulation ${showBalloons ? 'bg-[#00E5FF] text-[#2A2B70]' : 'bg-[#2A2B70] text-white'
                   }`}
                 title="Toggle Pop Balloons"
               >
-                <span>🎈 Balloons: {showBalloons ? 'ON' : 'OFF'}</span>
+                <span>🎈</span>
+                <span className="hidden sm:inline">Balloons: {showBalloons ? 'ON' : 'OFF'}</span>
               </button>
 
               <button
                 onClick={() => setIsPlayingAudio(!isPlayingAudio)}
-                className={`px-2.5 py-1 text-xs font-bold rounded border-2 border-white transition-all flex items-center gap-1.5 ${isPlayingAudio ? 'bg-[#FF6584] text-white animate-pulse' : 'bg-white/20 text-white'
+                className={`px-2 sm:px-2.5 py-1 text-xs font-bold rounded border-2 border-white transition-all flex items-center gap-1 touch-manipulation ${isPlayingAudio ? 'bg-[#FF6584] text-white animate-pulse' : 'bg-white/20 text-white'
                   }`}
                 title="Toggle Music"
               >
                 {isPlayingAudio ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
-                <span className="hidden sm:inline">{isPlayingAudio ? "Music On" : "Music Off"}</span>
+                <span className="hidden md:inline">{isPlayingAudio ? "Music On" : "Music Off"}</span>
               </button>
 
               <button
                 onClick={triggerConfetti}
-                className="px-3 py-1 bg-[#FFE600] hover:bg-yellow-300 text-[#2A2B70] font-extrabold text-xs rounded border-2 border-white shadow transition-all active:scale-95 flex items-center gap-1.5"
+                className="px-2 sm:px-3 py-1 bg-[#FFE600] hover:bg-yellow-300 text-[#2A2B70] font-extrabold text-xs rounded border-2 border-white shadow transition-all active:scale-95 flex items-center gap-1 touch-manipulation"
+                title="Pop Celebration Confetti"
               >
                 <PartyPopper className="w-3.5 h-3.5" />
-                <span>Celebrate! 🎉</span>
+                <span className="hidden sm:inline">Celebrate! 🎉</span>
               </button>
 
               <button
                 onClick={handleLockPage}
-                className="px-2.5 py-1 bg-[#FF6584] hover:bg-pink-600 text-white font-bold text-xs rounded border-2 border-white shadow transition-all active:scale-95 flex items-center gap-1 cursor-pointer"
+                className="px-2 sm:px-2.5 py-1 bg-[#FF6584] hover:bg-pink-600 text-white font-bold text-xs rounded border-2 border-white shadow transition-all active:scale-95 flex items-center gap-1 cursor-pointer touch-manipulation"
                 title="Return to Hero"
               >
                 <Lock className="w-3.5 h-3.5" />
@@ -292,37 +294,43 @@ export function App() {
           </header>
 
           {/* Main 90s Desktop Canvas */}
-          <main className="relative flex-1 w-full max-w-7xl mx-auto px-4 py-6 sm:py-8 flex flex-col justify-center z-20">
+          <main className="relative flex-1 w-full max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-8 flex flex-col justify-center z-20">
 
             {/* Step 5: Top Navigation Tabs (1.9s) */}
-            <div className={`flex items-center justify-center gap-2 mb-4 font-montserrat z-20 transition-all duration-600 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${materializeStage >= 5 ? 'translate-y-0 opacity-100 scale-100' : '-translate-y-6 opacity-0 scale-90'
+            <div className={`flex items-center justify-center gap-1.5 sm:gap-2 mb-3 sm:mb-4 font-montserrat z-20 transition-all duration-600 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${materializeStage >= 5 ? 'translate-y-0 opacity-100 scale-100' : '-translate-y-6 opacity-0 scale-90'
               }`}>
               <button
                 onClick={() => setActiveTab('invitation')}
-                className={`px-4 py-2 rounded-t-lg border-t-4 border-x-4 border-[#2A2B70] font-extrabold text-xs sm:text-sm transition-all ${activeTab === 'invitation'
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-t-lg border-t-3 sm:border-t-4 border-x-3 sm:border-x-4 border-[#2A2B70] font-extrabold text-xs sm:text-sm transition-all touch-manipulation ${activeTab === 'invitation'
                     ? 'bg-[#FF6584] text-white shadow-md translate-y-0.5'
                     : 'bg-white/80 hover:bg-white text-[#2A2B70]'
                   }`}
               >
-                ✉️ Main Card
+                <span>✉️ </span>
+                <span className="hidden sm:inline">Main Card</span>
+                <span className="sm:hidden">Card</span>
               </button>
               <button
                 onClick={() => setActiveTab('carousel')}
-                className={`px-4 py-2 rounded-t-lg border-t-4 border-x-4 border-[#2A2B70] font-extrabold text-xs sm:text-sm transition-all ${activeTab === 'carousel'
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-t-lg border-t-3 sm:border-t-4 border-x-3 sm:border-x-4 border-[#2A2B70] font-extrabold text-xs sm:text-sm transition-all touch-manipulation ${activeTab === 'carousel'
                     ? 'bg-[#00E5FF] text-[#2A2B70] shadow-md translate-y-0.5'
                     : 'bg-white/80 hover:bg-white text-[#2A2B70]'
                   }`}
               >
-                📸 Memory Carousel
+                <span>📸 </span>
+                <span className="hidden sm:inline">Memory Carousel</span>
+                <span className="sm:hidden">Memories</span>
               </button>
               <button
                 onClick={() => setActiveTab('wishes')}
-                className={`px-4 py-2 rounded-t-lg border-t-4 border-x-4 border-[#2A2B70] font-extrabold text-xs sm:text-sm transition-all ${activeTab === 'wishes'
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-t-lg border-t-3 sm:border-t-4 border-x-3 sm:border-x-4 border-[#2A2B70] font-extrabold text-xs sm:text-sm transition-all touch-manipulation ${activeTab === 'wishes'
                     ? 'bg-[#FFE600] text-[#2A2B70] shadow-md translate-y-0.5'
                     : 'bg-white/80 hover:bg-white text-[#2A2B70]'
                   }`}
               >
-                💌 Wish Board ({wishes.length})
+                <span>💌 </span>
+                <span className="hidden sm:inline">Wish Board ({wishes.length})</span>
+                <span className="sm:hidden">Wishes ({wishes.length})</span>
               </button>
             </div>
 
@@ -402,18 +410,18 @@ export function App() {
                           </div>
 
                           {/* Center Hero Script Title */}
-                          <div className="my-8 z-10">
-                            <h1 className="font-windsong text-5xl sm:text-7xl text-white leading-tight transform -rotate-3 vaporwave-text-shadow drop-shadow-lg">
+                          <div className="my-6 sm:my-8 z-10">
+                            <h1 className="font-windsong text-4xl sm:text-6xl md:text-7xl text-white leading-tight transform -rotate-3 vaporwave-text-shadow drop-shadow-lg">
                               happy<br />
-                              <span className="pl-6 text-[#ffe600]">birthday</span>
+                              <span className="pl-4 sm:pl-6 text-[#ffe600]">birthday</span>
                             </h1>
-                            <h2 className="font-montserrat font-black text-2xl sm:text-3xl text-white uppercase tracking-wider mt-4">
+                            <h2 className="font-montserrat font-black text-xl sm:text-3xl text-white uppercase tracking-wider mt-3 sm:mt-4">
                               Happy Birthday <span className="text-[#00f0ff]">Vini!</span>
                             </h2>
                           </div>
 
                           {/* 4 Bottom Horizontal Gradient Bar Graphic Decorator */}
-                          <div className="flex flex-col gap-1 mt-6 z-10">
+                          <div className="flex flex-col gap-1 mt-4 sm:mt-6 z-10">
                             <div className="h-1 bg-gradient-to-r from-[#00f0ff] via-[#ff00a0] to-transparent w-36 rounded-full" />
                             <div className="h-1 bg-gradient-to-r from-[#00f0ff] via-[#ff00a0] to-transparent w-28 rounded-full" />
                             <div className="h-1 bg-gradient-to-r from-[#00f0ff] via-[#ff00a0] to-transparent w-44 rounded-full" />
@@ -423,7 +431,7 @@ export function App() {
                         </div>
 
                         {/* RIGHT PANEL: Aqua to Neon Pink Gradient Canvas with Cupcake & Popups */}
-                        <div className="lg:col-span-7 p-6 sm:p-8 bg-gradient-to-tr from-[#ff00a0] via-[#00f0ff]/80 to-[#00f0ff] relative overflow-hidden flex flex-col items-center justify-between min-h-[480px]">
+                        <div className="lg:col-span-7 p-4 sm:p-8 bg-gradient-to-tr from-[#ff00a0] via-[#00f0ff]/80 to-[#00f0ff] relative overflow-hidden flex flex-col items-center justify-between min-h-[420px] sm:min-h-[480px]">
 
                           {/* Perspective Grid Pattern Background */}
                           <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#30004c_1px,transparent_1px),linear-gradient(to_bottom,#30004c_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
@@ -451,13 +459,13 @@ export function App() {
                           </div>
 
                           {/* Step 4: Center Synthwave Sunset Circle & Cupcake (1.6s) */}
-                          <div className={`relative z-10 mt-8 mb-2 flex justify-center items-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${materializeStage >= 4 ? 'scale-100 opacity-100' : 'scale-70 opacity-0'
+                          <div className={`relative z-10 mt-6 sm:mt-8 mb-2 flex justify-center items-center transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${materializeStage >= 4 ? 'scale-100 opacity-100' : 'scale-70 opacity-0'
                             }`}>
-                            <VaporwaveSun className="w-48 h-48 sm:w-60 sm:h-60" />
+                            <VaporwaveSun className="w-40 h-40 sm:w-60 sm:h-60" />
 
                             {/* Blue Birthday Cupcake positioned over Sun */}
                             <div className="absolute -bottom-2 z-20 transform hover:scale-105 transition-transform duration-300">
-                              <VaporwaveCupcake className="w-48 sm:w-60" />
+                              <VaporwaveCupcake className="w-40 sm:w-60" />
                             </div>
                           </div>
 
@@ -474,33 +482,33 @@ export function App() {
                       </div>
 
                       {/* BOTTOM EVENT DETAILS CARD */}
-                      <div className="p-4 sm:p-6 bg-white border-t-3 border-[#30004c] flex flex-col sm:flex-row items-center justify-between gap-4 font-montserrat">
+                      <div className="p-3.5 sm:p-6 bg-white border-t-3 border-[#30004c] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 font-montserrat">
 
                         {/* Left: Date Display */}
-                        <div className="flex items-center gap-3">
-                          <div className="w-14 h-14 bg-[#ff00a0] text-white rounded-xl border-2 border-[#30004c] shadow-[4px_4px_0px_0px_#30004c] flex flex-col items-center justify-center font-black">
-                            <span className="text-xl leading-none">22</span>
-                            <span className="text-[10px] uppercase tracking-wider font-extrabold">OCT</span>
+                        <div className="flex items-center gap-3 w-full sm:w-auto">
+                          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#ff00a0] text-white rounded-xl border-2 border-[#30004c] shadow-[3px_3px_0px_0px_#30004c] sm:shadow-[4px_4px_0px_0px_#30004c] flex flex-col items-center justify-center font-black flex-shrink-0">
+                            <span className="text-lg sm:text-xl leading-none">22</span>
+                            <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-extrabold">OCT</span>
                           </div>
                           <div>
-                            <h4 className="font-extrabold text-sm text-[#30004c]">
+                            <h4 className="font-extrabold text-xs sm:text-sm text-[#30004c]">
                               Vini's Birthday Bash 🎂
                             </h4>
-                            <p className="text-xs font-medium text-gray-600">
+                            <p className="text-[11px] sm:text-xs font-medium text-gray-600">
                               October 22nd • Special Celebration
                             </p>
                           </div>
                         </div>
 
                         {/* Middle: Meaningful Time & Invitation Details */}
-                        <div className="text-center sm:text-left border-y sm:border-y-0 sm:border-x border-gray-200 py-2 sm:py-0 sm:px-6">
+                        <div className="text-center sm:text-left border-y sm:border-y-0 sm:border-x border-gray-200 py-1.5 sm:py-0 sm:px-6 w-full sm:w-auto">
                           <div className="flex items-center justify-center sm:justify-start gap-1.5 text-[#ff00a0] font-bold text-xs sm:text-sm">
                             <span>🎉 Join the Celebration!</span>
                           </div>
-                          <div className="font-black text-sm sm:text-base text-[#30004c] mt-0.5">
+                          <div className="font-black text-xs sm:text-base text-[#30004c] mt-0.5">
                             7:00 PM Onwards
                           </div>
-                          <p className="text-xs text-gray-500 font-semibold mt-0.5">
+                          <p className="text-[11px] sm:text-xs text-gray-500 font-semibold mt-0.5">
                             Cake, Drinks, Music & Good Vibes 🥳
                           </p>
                         </div>
@@ -508,7 +516,7 @@ export function App() {
                         {/* Right: Interactive RSVP Button */}
                         <button
                           onClick={triggerConfetti}
-                          className="px-6 py-3 bg-gradient-to-r from-[#ff00a0] to-[#ff0055] hover:from-[#ff0080] hover:to-[#ff0040] text-white font-black text-xs sm:text-sm rounded-xl border-2 border-[#30004c] shadow-[4px_4px_0px_0px_#ffe600] active:translate-y-0.5 transition-all flex items-center gap-2 cursor-pointer"
+                          className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#ff00a0] to-[#ff0055] hover:from-[#ff0080] hover:to-[#ff0040] text-white font-black text-xs sm:text-sm rounded-xl border-2 border-[#30004c] shadow-[3px_3px_0px_0px_#ffe600] sm:shadow-[4px_4px_0px_0px_#ffe600] active:translate-y-0.5 transition-all flex items-center justify-center gap-2 cursor-pointer touch-manipulation"
                         >
                           <PartyPopper className="w-4 h-4 text-[#ffe600]" />
                           <span>RSVP & Pop Confetti! 🎉</span>
@@ -601,11 +609,11 @@ export function App() {
                             onChange={(e) => setNewWish(e.target.value)}
                             placeholder="Write your birthday note here..."
                             rows={4}
-                            className="w-full px-3 py-2 rounded-lg bg-[#FAF8F5] border-2 border-[#2A2B70] text-[#2A2B70] placeholder-gray-400 text-xs resize-none focus:outline-none focus:bg-white"
+                            className="w-full px-3 py-2 rounded-lg bg-[#FAF8F5] border-2 border-[#2A2B70] text-[#2A2B70] placeholder-gray-400 text-base sm:text-xs resize-none focus:outline-none focus:bg-white"
                           />
                           <button
                             type="submit"
-                            className="w-full py-2.5 bg-[#00C9A7] hover:bg-[#00b294] text-white font-extrabold text-xs rounded-lg border-2 border-[#2A2B70] shadow flex items-center justify-center gap-2 transition-transform active:translate-y-0.5"
+                            className="w-full py-2.5 bg-[#00C9A7] hover:bg-[#00b294] text-white font-extrabold text-xs rounded-lg border-2 border-[#2A2B70] shadow flex items-center justify-center gap-2 transition-transform active:translate-y-0.5 touch-manipulation cursor-pointer"
                           >
                             <Heart className="w-4 h-4 fill-white" />
                             <span>Post Birthday Wish</span>
@@ -696,13 +704,13 @@ export function App() {
           )}
 
           {/* Bottom 90s OS Taskbar */}
-          <footer className={`w-full bg-[#2A2B70] border-t-4 border-[#FFE600] text-white px-4 py-2 z-30 flex items-center justify-between font-montserrat text-xs transition-all duration-500 ${materializeStage >= 1 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+          <footer className={`w-full bg-[#2A2B70] border-t-3 sm:border-t-4 border-[#FFE600] text-white px-3 sm:px-4 py-1.5 sm:py-2 pb-safe z-30 flex items-center justify-between font-montserrat text-xs transition-all duration-500 ${materializeStage >= 1 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
             }`}>
             <div className="flex items-center gap-2 sm:gap-3">
               {/* Start Menu Button */}
               <button
                 onClick={triggerConfetti}
-                className="px-3 py-1 bg-[#FF6584] hover:bg-pink-600 text-white font-black rounded border-2 border-white flex items-center gap-1.5 shadow active:translate-y-0.5"
+                className="px-2.5 sm:px-3 py-1 bg-[#FF6584] hover:bg-pink-600 text-white font-black rounded border-2 border-white flex items-center gap-1.5 shadow active:translate-y-0.5 touch-manipulation"
               >
                 <Tv className="w-3.5 h-3.5" />
                 <span>START</span>
@@ -711,25 +719,25 @@ export function App() {
               {/* Quick Gift Box Taskbar Button */}
               <button
                 onClick={() => setShowGiftBox(true)}
-                className="px-3 py-1 bg-[#FFE600] hover:bg-yellow-300 text-[#2A2B70] font-black rounded border-2 border-white flex items-center gap-1.5 shadow active:translate-y-0.5"
+                className="px-2.5 sm:px-3 py-1 bg-[#FFE600] hover:bg-yellow-300 text-[#2A2B70] font-black rounded border-2 border-white flex items-center gap-1.5 shadow active:translate-y-0.5 touch-manipulation"
                 title="Open Surprise Gift Box"
               >
                 <Gift className="w-3.5 h-3.5 text-[#2A2B70]" />
-                <span className="hidden sm:inline">🎁 Gifts</span>
+                <span className="hidden xs:inline sm:inline">🎁 Gifts</span>
               </button>
 
               {/* Taskbar Memphis icon */}
-              <div className="hidden sm:block">
+              <div className="hidden md:block">
                 <MemphisZigzag color="#00E5FF" className="w-20 h-6" />
               </div>
             </div>
 
-            <div className="text-center text-[11px] font-semibold text-gray-200">
+            <div className="hidden sm:block text-center text-[11px] font-semibold text-gray-200 truncate px-2">
               Vini's 90s Birthday Bash • Made with ❤️
             </div>
 
             {/* System Tray Live Clock */}
-            <div className="px-3 py-1 bg-[#3c3e98] border border-white/30 rounded font-mono font-bold text-[#FFE600]">
+            <div className="px-2.5 sm:px-3 py-1 bg-[#3c3e98] border border-white/30 rounded font-mono font-bold text-[#FFE600] text-[11px] sm:text-xs">
               {currentTime || "10:00 PM"}
             </div>
           </footer>

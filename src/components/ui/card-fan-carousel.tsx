@@ -36,6 +36,8 @@ export const CardFanCarousel: React.FC<CardFanCarouselProps> = ({
   const [isTablet, setIsTablet] = useState(false);
   const [likedCards, setLikedCards] = useState<Record<number, boolean>>({});
   const carouselId = useId();
+  const touchStartRef = useRef<number | null>(null);
+  const touchEndRef = useRef<number | null>(null);
 
   const VISIBLE_COUNT = 7;
   const totalCards = cards.length;
@@ -78,13 +80,13 @@ export const CardFanCarousel: React.FC<CardFanCarouselProps> = ({
   const getLayoutConfig = () => {
     if (isMobile) {
       return {
-        angleStep: 7,
-        xSpacing: 48,
-        yCurve: 9,
+        angleStep: 6,
+        xSpacing: 42,
+        yCurve: 8,
         scaleStep: 0.1,
         baseScale: 0.88,
-        cardWidth: "w-48 sm:w-56",
-        cardHeight: "h-68 sm:h-80",
+        cardWidth: "w-44 sm:w-56",
+        cardHeight: "h-64 sm:h-80",
       };
     }
     if (isTablet) {
@@ -213,14 +215,32 @@ export const CardFanCarousel: React.FC<CardFanCarouselProps> = ({
       ref={containerRef}
       tabIndex={0}
       onKeyDown={handleKeyDown}
+      onTouchStart={(e) => {
+        touchStartRef.current = e.targetTouches[0].clientX;
+        touchEndRef.current = null;
+      }}
+      onTouchMove={(e) => {
+        touchEndRef.current = e.targetTouches[0].clientX;
+      }}
+      onTouchEnd={() => {
+        if (touchStartRef.current === null || touchEndRef.current === null) return;
+        const distance = touchStartRef.current - touchEndRef.current;
+        if (distance > 40) {
+          handleNext();
+        } else if (distance < -40) {
+          handlePrev();
+        }
+        touchStartRef.current = null;
+        touchEndRef.current = null;
+      }}
       aria-label="Card fan carousel"
-      className={`relative w-full py-6 flex flex-col items-center justify-center overflow-visible focus:outline-none ${className}`}
+      className={`relative w-full py-4 sm:py-6 flex flex-col items-center justify-center overflow-visible focus:outline-none touch-pan-y ${className}`}
     >
       {/* Background Synthwave Glow Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-80 bg-gradient-to-r from-[#ff00a0]/25 via-[#00f0ff]/20 to-[#ffe600]/20 blur-3xl pointer-events-none rounded-full" />
 
       {/* Fan Cards Container */}
-      <div className="relative w-full h-[380px] sm:h-[440px] md:h-[480px] flex items-center justify-center perspective-1000">
+      <div className="relative w-full h-[350px] sm:h-[440px] md:h-[480px] flex items-center justify-center perspective-1000">
         {visibleSlots.map(({ cardIndex, slotOffset }, idx) => {
           const card = cards[cardIndex];
           if (!card) return null;
@@ -374,7 +394,7 @@ export const CardFanCarousel: React.FC<CardFanCarouselProps> = ({
                 colors: ["#FFE600", "#FF6584", "#00E5FF"]
               });
             }}
-            className="px-4 py-2.5 bg-[#FFE600] hover:bg-yellow-300 text-[#30004c] font-black text-xs rounded-xl border-2 border-[#30004c] shadow transition-all active:scale-95 flex items-center gap-1.5 whitespace-nowrap cursor-pointer"
+            className="w-full sm:w-auto px-4 py-2.5 bg-[#FFE600] hover:bg-yellow-300 text-[#30004c] font-black text-xs rounded-xl border-2 border-[#30004c] shadow transition-all active:scale-95 flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer touch-manipulation"
           >
             <Heart className="w-3.5 h-3.5 fill-[#30004c]" />
             <span>Cherish Memory ✨</span>

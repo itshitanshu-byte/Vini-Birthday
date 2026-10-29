@@ -17,7 +17,8 @@ export default function BalloonBackground() {
       y: -2000,
     };
 
-    const balloonCount = 30;
+    const isMobileDevice = typeof window !== "undefined" && window.innerWidth < 640;
+    const balloonCount = isMobileDevice ? 18 : 30;
 
     const colors = [
       { base: "#ff2e63", light: "#ff6b8f", dark: "#9d0b2e" },
@@ -362,6 +363,18 @@ export default function BalloonBackground() {
       mouse.y = e.clientY;
     };
 
+    const onTouchMove = (e: TouchEvent) => {
+      if (e.touches && e.touches[0]) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+      }
+    };
+
+    const onTouchEnd = () => {
+      mouse.x = -2000;
+      mouse.y = -2000;
+    };
+
     window.addEventListener(
       "resize",
       resize
@@ -370,6 +383,24 @@ export default function BalloonBackground() {
     window.addEventListener(
       "mousemove",
       onMouseMove
+    );
+
+    window.addEventListener(
+      "touchstart",
+      onTouchMove,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      "touchmove",
+      onTouchMove,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      "touchend",
+      onTouchEnd,
+      { passive: true }
     );
 
     resize();
@@ -384,6 +415,21 @@ export default function BalloonBackground() {
       window.removeEventListener(
         "mousemove",
         onMouseMove
+      );
+
+      window.removeEventListener(
+        "touchstart",
+        onTouchMove
+      );
+
+      window.removeEventListener(
+        "touchmove",
+        onTouchMove
+      );
+
+      window.removeEventListener(
+        "touchend",
+        onTouchEnd
       );
 
       cancelAnimationFrame(

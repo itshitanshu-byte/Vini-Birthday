@@ -53,9 +53,10 @@ export const GiftBoxSurprise: React.FC<GiftBoxSurpriseProps> = ({ isOpen, onClos
   const [activeMessage, setActiveMessage] = useState<string | null>(null);
   const [clickedCount, setClickedCount] = useState<number>(0);
 
-  // Generate 44 scattered treats flying radially
+  // Generate scattered treats flying radially (optimized count and sizes for mobile)
   const generateTreats = (): TreatItem[] => {
-    const totalItems = 44;
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+    const totalItems = isMobile ? 26 : 44;
     const items: TreatItem[] = [];
 
     for (let i = 0; i < totalItems; i++) {
@@ -63,20 +64,20 @@ export const GiftBoxSurprise: React.FC<GiftBoxSurpriseProps> = ({ isOpen, onClos
       
       // Calculate radial scatter positions across the screen
       const angle = (i / totalItems) * 2 * Math.PI + (Math.random() * 0.4 - 0.2);
-      // Distance from center between 22% and 48% (viewport bounds)
-      const distance = 22 + Math.random() * 26;
+      // Distance from center between 20% and 46% (viewport bounds)
+      const distance = isMobile ? (18 + Math.random() * 26) : (22 + Math.random() * 26);
       
       const x = 50 + Math.cos(angle) * distance;
-      const y = 50 + Math.sin(angle) * (distance * 0.85); // Slightly compressed vertically
+      const y = 50 + Math.sin(angle) * (distance * (isMobile ? 0.95 : 0.85));
 
       items.push({
         id: i,
         type: treatTemplate.type,
         emoji: treatTemplate.emoji,
         label: treatTemplate.label,
-        x: Math.max(6, Math.min(94, x)),
-        y: Math.max(10, Math.min(90, y)),
-        size: Math.floor(28 + Math.random() * 26),
+        x: Math.max(8, Math.min(92, x)),
+        y: Math.max(isMobile ? 14 : 10, Math.min(isMobile ? 86 : 90, y)),
+        size: isMobile ? Math.floor(22 + Math.random() * 20) : Math.floor(28 + Math.random() * 26),
         rotation: Math.floor(Math.random() * 70 - 35),
         delay: Math.random() * 0.4,
         duration: 3 + Math.random() * 2.5,
@@ -189,11 +190,11 @@ export const GiftBoxSurprise: React.FC<GiftBoxSurpriseProps> = ({ isOpen, onClos
       />
 
       {/* Top Header Controls */}
-      <header className="absolute top-4 inset-x-4 max-w-5xl mx-auto flex items-center justify-between z-40">
-        <div className="flex items-center gap-2 px-3.5 py-1.5 bg-[#2A2B70] border-2 border-[#FFE600] rounded-xl text-white shadow-md">
-          <Gift className="w-4 h-4 text-[#FFE600] animate-bounce" />
-          <span className="font-extrabold text-xs sm:text-sm tracking-wide text-[#FFE600]">
-            VINI'S SPECIAL GIFT BOX
+      <header className="absolute top-[max(1rem,env(safe-area-inset-top))] inset-x-3 sm:inset-x-4 max-w-5xl mx-auto flex items-center justify-between z-40">
+        <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 bg-[#2A2B70] border-2 border-[#FFE600] rounded-xl text-white shadow-md">
+          <Gift className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFE600] animate-bounce" />
+          <span className="font-extrabold text-[11px] sm:text-sm tracking-wide text-[#FFE600]">
+            VINI'S GIFT BOX
           </span>
         </div>
 
@@ -201,16 +202,16 @@ export const GiftBoxSurprise: React.FC<GiftBoxSurpriseProps> = ({ isOpen, onClos
           {boxState === "exploded" && (
             <button
               onClick={handleReset}
-              className="px-3.5 py-1.5 bg-[#00E5FF] hover:bg-[#00c9e6] active:scale-95 text-[#2A2B70] font-black text-xs rounded-xl border-2 border-[#2A2B70] shadow flex items-center gap-1.5 cursor-pointer transition-transform"
+              className="px-2.5 sm:px-3.5 py-1.5 bg-[#00E5FF] hover:bg-[#00c9e6] active:scale-95 text-[#2A2B70] font-black text-xs rounded-xl border-2 border-[#2A2B70] shadow flex items-center gap-1 cursor-pointer transition-transform touch-manipulation"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Pack Box Again 🔄</span>
+              <span>Pack Again 🔄</span>
             </button>
           )}
 
           <button
             onClick={onClose}
-            className="p-2 bg-[#FF6584] hover:bg-pink-600 text-white rounded-xl border-2 border-white shadow hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            className="p-1.5 sm:p-2 bg-[#FF6584] hover:bg-pink-600 text-white rounded-xl border-2 border-white shadow hover:scale-105 active:scale-95 transition-all cursor-pointer touch-manipulation"
             title="Close Gift Box"
           >
             <X className="w-4 h-4" />

@@ -17,7 +17,7 @@ export const RetroSidebarIcons: React.FC<RetroSidebarIconsProps> = ({
   ] as const;
 
   return (
-    <div className="flex sm:flex-col items-center justify-center gap-4 sm:gap-6 py-2 px-3 bg-[#3d40a0]/60 backdrop-blur-md rounded-2xl border-2 border-[#FFE600]/40 shadow-xl">
+    <div className="w-full sm:w-auto flex sm:flex-col items-center justify-around sm:justify-center gap-2 sm:gap-6 py-2 px-2 sm:px-3 bg-[#3d40a0]/60 backdrop-blur-md rounded-2xl border-2 border-[#FFE600]/40 shadow-xl">
       {items.map((item) => {
         const IconComponent = item.icon;
         const isActive = activeCategory === item.id;
@@ -26,17 +26,17 @@ export const RetroSidebarIcons: React.FC<RetroSidebarIconsProps> = ({
           <button
             key={item.id}
             onClick={() => onSelectCategory(item.id)}
-            className={`group relative flex flex-col items-center justify-center p-2.5 rounded-xl transition-all duration-200 focus:outline-none ${
+            className={`group relative flex flex-col items-center justify-center p-2 sm:p-2.5 rounded-xl transition-all duration-200 focus:outline-none touch-manipulation active:scale-95 ${
               isActive
                 ? 'bg-[#FFE600] text-[#2A2B70] scale-105 shadow-lg border-2 border-[#2A2B70]'
                 : 'hover:bg-white/15 text-white'
             }`}
           >
             <div className="relative transform group-hover:scale-110 transition-transform duration-200">
-              <IconComponent className="w-12 h-12 sm:w-14 sm:h-14 drop-shadow-md" />
+              <IconComponent className="w-10 h-10 sm:w-14 sm:h-14 drop-shadow-md" />
             </div>
             <span
-              className={`mt-1 font-montserrat font-bold text-xs sm:text-sm tracking-wide ${
+              className={`mt-1 font-montserrat font-bold text-[11px] sm:text-sm tracking-wide ${
                 isActive ? 'text-[#2A2B70]' : 'text-white drop-shadow'
               }`}
             >

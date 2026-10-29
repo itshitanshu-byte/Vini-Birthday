@@ -155,25 +155,25 @@ export const VaporwaveCupcake: React.FC<{ className?: string }> = ({ className =
 // "WISH YOU ALL THE BEST" Pop-up Widget matching middle pop-up in 5823064.jpg
 export const VaporwaveWishWidget: React.FC<{ onOkClick?: () => void }> = ({ onOkClick }) => {
   return (
-    <div className="w-64 sm:w-72 bg-white border-3 border-[#30004c] rounded-xl shadow-[8px_8px_0px_0px_#ff00a0] overflow-hidden transform hover:-translate-y-1 transition-all">
+    <div className="w-56 sm:w-72 bg-white border-2 sm:border-3 border-[#30004c] rounded-xl shadow-[5px_5px_0px_0px_#ff00a0] sm:shadow-[8px_8px_0px_0px_#ff00a0] overflow-hidden transform hover:-translate-y-1 transition-all">
       {/* Retro OS Window Titlebar */}
-      <div className="px-3 py-1.5 bg-gradient-to-r from-[#ff00a0] to-[#ff0055] border-b-2 border-[#30004c] flex items-center justify-between">
+      <div className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-[#ff00a0] to-[#ff0055] border-b-2 border-[#30004c] flex items-center justify-between">
         <div className="flex items-center gap-1.5">
-          <div className="w-3 h-3 rounded-full bg-[#ff5f56] border border-black/30" />
-          <div className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-black/30" />
-          <div className="w-3 h-3 rounded-full bg-[#27c93f] border border-black/30" />
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ff5f56] border border-black/30" />
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ffbd2e] border border-black/30" />
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27c93f] border border-black/30" />
         </div>
-        <span className="text-[10px] font-black text-white uppercase tracking-wider">Vaporwave OS</span>
+        <span className="text-[9px] sm:text-[10px] font-black text-white uppercase tracking-wider">Vaporwave OS</span>
       </div>
       {/* Window Body */}
-      <div className="p-4 flex flex-col items-center text-center bg-gradient-to-b from-white to-[#00f0ff]/10">
-        <h4 className="font-montserrat font-black text-lg sm:text-xl text-[#00c9a7] uppercase tracking-wide leading-tight mb-3 transform -rotate-1">
+      <div className="p-3 sm:p-4 flex flex-col items-center text-center bg-gradient-to-b from-white to-[#00f0ff]/10">
+        <h4 className="font-montserrat font-black text-base sm:text-xl text-[#00c9a7] uppercase tracking-wide leading-tight mb-2.5 sm:mb-3 transform -rotate-1">
           WISH YOU<br />
           <span className="text-[#ff00a0]">ALL THE BEST</span>
         </h4>
         <button
           onClick={onOkClick}
-          className="px-6 py-2 bg-gradient-to-r from-[#FFE600] via-[#FF6584] to-[#00E5FF] hover:brightness-110 text-[#2A2B70] font-black text-xs sm:text-sm rounded-full border-2 border-[#30004c] shadow-[3px_3px_0px_0px_#30004c] transition-all active:scale-95 cursor-pointer flex items-center gap-1.5"
+          className="px-5 sm:px-6 py-1.5 sm:py-2 bg-gradient-to-r from-[#FFE600] via-[#FF6584] to-[#00E5FF] hover:brightness-110 text-[#2A2B70] font-black text-xs sm:text-sm rounded-full border-2 border-[#30004c] shadow-[2px_2px_0px_0px_#30004c] sm:shadow-[3px_3px_0px_0px_#30004c] transition-all active:scale-95 cursor-pointer flex items-center gap-1.5 touch-manipulation"
           title="Click to open rotating 3D gift box!"
         >
           <span>🎁 Surprise</span>

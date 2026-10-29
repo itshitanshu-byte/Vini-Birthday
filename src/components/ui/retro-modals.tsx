@@ -347,17 +347,17 @@ export const RetroModals: React.FC<RetroModalProps> = ({
 
                 {/* LAYER 3: TOP LAYER ("VINI") */}
                 {cakeStep >= 3 && (
-                  <div className="relative z-20 w-44 sm:w-52 h-12 sm:h-14 bg-gradient-to-r from-[#00E5FF] via-[#7ceeff] to-[#00E5FF] rounded-t-xl border-3 border-white shadow-lg flex flex-col items-center justify-center animate-cake-drop">
+                  <div className="relative z-20 w-36 sm:w-52 h-11 sm:h-14 bg-gradient-to-r from-[#00E5FF] via-[#7ceeff] to-[#00E5FF] rounded-t-xl border-3 border-white shadow-lg flex flex-col items-center justify-center animate-cake-drop">
                     {/* Top Decorative Frosting Pearls */}
-                    <div className="absolute -top-2 inset-x-3 flex justify-around">
-                      <div className="w-2.5 h-2.5 bg-white rounded-full shadow" />
-                      <div className="w-3 h-3 bg-[#FFE600] rounded-full shadow" />
-                      <div className="w-2.5 h-2.5 bg-[#FF6584] rounded-full shadow" />
-                      <div className="w-3 h-3 bg-[#FFE600] rounded-full shadow" />
-                      <div className="w-2.5 h-2.5 bg-white rounded-full shadow" />
+                    <div className="absolute -top-2 inset-x-2 sm:inset-x-3 flex justify-around">
+                      <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-[#FFE600] rounded-full shadow" />
+                      <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-[#FF6584] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-[#FFE600] rounded-full shadow" />
+                      <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white rounded-full shadow" />
                     </div>
 
-                    <span className="font-black text-sm sm:text-base tracking-[0.25em] text-[#2A2B70] uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
+                    <span className="font-black text-xs sm:text-base tracking-[0.15em] sm:tracking-[0.25em] text-[#2A2B70] uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
                       💖 VINI 💖
                     </span>
                   </div>
@@ -365,18 +365,18 @@ export const RetroModals: React.FC<RetroModalProps> = ({
 
                 {/* LAYER 2: MIDDLE LAYER ("BIRTHDAY") */}
                 {cakeStep >= 2 && (
-                  <div className="relative z-15 w-60 sm:w-68 h-14 sm:h-16 bg-gradient-to-r from-[#FF6584] via-[#ff8fa3] to-[#FF6584] border-3 border-white shadow-xl flex flex-col items-center justify-center animate-cake-drop">
+                  <div className="relative z-15 w-48 sm:w-68 h-13 sm:h-16 bg-gradient-to-r from-[#FF6584] via-[#ff8fa3] to-[#FF6584] border-3 border-white shadow-xl flex flex-col items-center justify-center animate-cake-drop">
                     {/* Decorative Strawberry Icing Wave */}
-                    <div className="absolute -top-2 inset-x-2 flex justify-around">
-                      <div className="w-3 h-3 bg-[#FFE600] rounded-full shadow" />
-                      <div className="w-3 h-3 bg-white rounded-full shadow" />
-                      <div className="w-3 h-3 bg-[#00E5FF] rounded-full shadow" />
-                      <div className="w-3 h-3 bg-white rounded-full shadow" />
-                      <div className="w-3 h-3 bg-[#FFE600] rounded-full shadow" />
-                      <div className="w-3 h-3 bg-white rounded-full shadow" />
+                    <div className="absolute -top-2 inset-x-1.5 sm:inset-x-2 flex justify-around">
+                      <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-[#FFE600] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-white rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-[#00E5FF] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-white rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-[#FFE600] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-white rounded-full shadow" />
                     </div>
 
-                    <span className="font-black text-sm sm:text-base tracking-[0.2em] text-white uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
+                    <span className="font-black text-xs sm:text-base tracking-[0.15em] sm:tracking-[0.2em] text-white uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
                       ✨ BIRTHDAY ✨
                     </span>
                   </div>
@@ -384,26 +384,26 @@ export const RetroModals: React.FC<RetroModalProps> = ({
 
                 {/* LAYER 1: BOTTOM LAYER ("HAPPY") */}
                 {cakeStep >= 1 && (
-                  <div className="relative z-10 w-76 sm:w-84 h-16 sm:h-18 bg-gradient-to-r from-[#7C69EF] via-[#9d8df1] to-[#7C69EF] rounded-b-lg border-3 border-white shadow-2xl flex flex-col items-center justify-center animate-cake-drop">
+                  <div className="relative z-10 w-60 sm:w-84 h-15 sm:h-18 bg-gradient-to-r from-[#7C69EF] via-[#9d8df1] to-[#7C69EF] rounded-b-lg border-3 border-white shadow-2xl flex flex-col items-center justify-center animate-cake-drop">
                     {/* Decorative Yellow Icing Wave */}
-                    <div className="absolute -top-2 inset-x-2 flex justify-around">
-                      <div className="w-3.5 h-3.5 bg-white rounded-full shadow" />
-                      <div className="w-3.5 h-3.5 bg-[#FFE600] rounded-full shadow" />
-                      <div className="w-3.5 h-3.5 bg-[#00E5FF] rounded-full shadow" />
-                      <div className="w-3.5 h-3.5 bg-[#FF6584] rounded-full shadow" />
-                      <div className="w-3.5 h-3.5 bg-[#FFE600] rounded-full shadow" />
-                      <div className="w-3.5 h-3.5 bg-[#00E5FF] rounded-full shadow" />
-                      <div className="w-3.5 h-3.5 bg-white rounded-full shadow" />
+                    <div className="absolute -top-2 inset-x-1.5 sm:inset-x-2 flex justify-around">
+                      <div className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 bg-white rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 bg-[#FFE600] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 bg-[#00E5FF] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 bg-[#FF6584] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 bg-[#FFE600] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 bg-[#00E5FF] rounded-full shadow" />
+                      <div className="w-2.5 sm:w-3.5 h-2.5 sm:h-3.5 bg-white rounded-full shadow" />
                     </div>
 
-                    <span className="font-black text-base sm:text-lg tracking-[0.25em] text-[#FFE600] uppercase drop-shadow-[0_2px_4px_rgba(42,43,112,0.8)]">
+                    <span className="font-black text-sm sm:text-lg tracking-[0.15em] sm:tracking-[0.25em] text-[#FFE600] uppercase drop-shadow-[0_2px_4px_rgba(42,43,112,0.8)]">
                       🎉 HAPPY 🎉
                     </span>
                   </div>
                 )}
 
                 {/* CAKE STAND / PLATE (Always Visible) */}
-                <div className="w-84 sm:w-92 h-3.5 bg-gradient-to-r from-slate-300 via-white to-slate-300 rounded-full border-2 border-slate-400 shadow-[0_10px_20px_rgba(0,0,0,0.6)] mt-0.5" />
+                <div className="w-68 sm:w-92 h-3 sm:h-3.5 bg-gradient-to-r from-slate-300 via-white to-slate-300 rounded-full border-2 border-slate-400 shadow-[0_10px_20px_rgba(0,0,0,0.6)] mt-0.5" />
 
                 {/* Progress / Status Tag */}
                 <div className="mt-4 text-center">
@@ -527,21 +527,21 @@ export const RetroModals: React.FC<RetroModalProps> = ({
               </div>
 
               {/* Lined Retro Letter Stationary Card */}
-              <div className="relative p-5 sm:p-7 bg-[#FFFDF0] border-3 border-[#2A2B70] rounded-xl shadow-md overflow-hidden">
+              <div className="relative p-3.5 sm:p-7 bg-[#FFFDF0] border-3 border-[#2A2B70] rounded-xl shadow-md overflow-hidden">
                 {/* Decorative Retro Stamp Top-Right */}
-                <div className="absolute top-3 right-3 flex flex-col items-center pointer-events-none">
-                  <div className="w-12 h-14 bg-gradient-to-br from-[#FFE600] to-[#FF6584] border-2 border-[#2A2B70] rounded p-1 flex flex-col items-center justify-between shadow-sm transform rotate-3">
-                    <span className="text-[9px] font-black text-[#2A2B70] tracking-tighter uppercase">POSTAGE</span>
-                    <span className="text-sm">🎂</span>
-                    <span className="text-[8px] font-bold text-[#2A2B70]">VINI 2026</span>
+                <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 flex flex-col items-center pointer-events-none">
+                  <div className="w-10 h-12 sm:w-12 sm:h-14 bg-gradient-to-br from-[#FFE600] to-[#FF6584] border-2 border-[#2A2B70] rounded p-1 flex flex-col items-center justify-between shadow-sm transform rotate-3">
+                    <span className="text-[8px] sm:text-[9px] font-black text-[#2A2B70] tracking-tighter uppercase">POSTAGE</span>
+                    <span className="text-xs sm:text-sm">🎂</span>
+                    <span className="text-[7px] sm:text-[8px] font-bold text-[#2A2B70]">VINI 2026</span>
                   </div>
-                  <div className="w-8 h-0.5 bg-[#2A2B70]/40 -mt-1 transform -rotate-12" />
+                  <div className="w-6 sm:w-8 h-0.5 bg-[#2A2B70]/40 -mt-1 transform -rotate-12" />
                 </div>
 
                 {/* Salutation */}
-                <div className="mb-4 pr-16">
-                  <span className="text-xs font-bold text-[#FF6584] uppercase tracking-wider block mb-0.5">Birthday Memo</span>
-                  <h3 className="font-black text-xl sm:text-2xl text-[#2A2B70] font-montserrat">
+                <div className="mb-3 sm:mb-4 pr-12 sm:pr-16">
+                  <span className="text-[10px] sm:text-xs font-bold text-[#FF6584] uppercase tracking-wider block mb-0.5">Birthday Memo</span>
+                  <h3 className="font-black text-lg sm:text-2xl text-[#2A2B70] font-montserrat">
                     Dearest Vini, 💖
                   </h3>
                 </div>

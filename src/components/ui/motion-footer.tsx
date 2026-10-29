@@ -208,7 +208,7 @@ export function CinematicFooter({ onEnterClick, transitionPhase = "idle" }: Cine
   return (
     <section
       ref={containerRef}
-      className={`relative w-full min-h-screen bg-[#0d0f1d] text-white flex flex-col justify-center items-center overflow-hidden font-jakarta select-none z-30 px-4 transition-all duration-700 ease-out ${
+      className={`relative w-full min-h-screen min-h-[100dvh] pt-safe pb-safe bg-[#0d0f1d] text-white flex flex-col justify-center items-center overflow-hidden font-jakarta select-none z-30 px-4 transition-all duration-700 ease-out ${
         isWarping
           ? "scale-125 blur-xl opacity-0 pointer-events-none"
           : "scale-100 blur-0 opacity-100"
@@ -262,18 +262,18 @@ export function CinematicFooter({ onEnterClick, transitionPhase = "idle" }: Cine
         </div>
 
         {/* Metallic / Glowing Heading - Elegantly Sized */}
-        <h2 className="reveal-item text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-5 bg-gradient-to-r from-[#FFE600] via-white to-[#00E5FF] bg-clip-text text-transparent drop-shadow-[0_2px_20px_rgba(255,230,0,0.25)]">
+        <h2 className="reveal-item text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-4 sm:mb-5 bg-gradient-to-r from-[#FFE600] via-white to-[#00E5FF] bg-clip-text text-transparent drop-shadow-[0_2px_20px_rgba(255,230,0,0.25)] leading-tight px-2">
           Happy Birthday Vini
         </h2>
 
-        <p className="reveal-item text-slate-300 text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-8 font-normal">
+        <p className="reveal-item text-slate-300 text-xs sm:text-base md:text-lg max-w-lg leading-relaxed mb-6 sm:mb-8 font-normal px-2">
           Wishing you an incredible day filled with endless joy, laughter, and unforgettable moments! 🎉✨
         </p>
 
         {/* Primary Interactive CTA Button with Magical Glow */}
         <div
           ref={buttonContainerRef}
-          className={`reveal-item relative flex flex-wrap items-center justify-center gap-4 mb-8 transition-all duration-500 ${
+          className={`reveal-item relative flex flex-wrap items-center justify-center gap-4 mb-6 sm:mb-8 transition-all duration-500 ${
             isButtonDissolving
               ? "opacity-0 scale-75 blur-md"
               : isButtonPulsing
@@ -291,7 +291,7 @@ export function CinematicFooter({ onEnterClick, transitionPhase = "idle" }: Cine
           <MagneticButton
             as="button"
             onClick={handleEnter}
-            className="relative px-9 py-4 rounded-full bg-gradient-to-r from-[#FFE600] via-[#FF6584] to-[#00E5FF] text-[#0d0f1d] font-black text-sm sm:text-base flex items-center gap-3 shadow-[0_0_35px_rgba(255,230,0,0.5)] hover:shadow-[0_0_55px_rgba(255,101,132,0.8)] border-2 border-white group transition-all transform active:scale-95 cursor-pointer"
+            className="relative px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#FFE600] via-[#FF6584] to-[#00E5FF] text-[#0d0f1d] font-black text-xs sm:text-base flex items-center gap-2 sm:gap-3 shadow-[0_0_35px_rgba(255,230,0,0.5)] hover:shadow-[0_0_55px_rgba(255,101,132,0.8)] border-2 border-white group transition-all transform active:scale-95 cursor-pointer touch-manipulation"
             aria-label="Enter Birthday Celebration OS"
           >
             <span className="text-xl animate-bounce">✨</span>
